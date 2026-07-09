@@ -1,12 +1,28 @@
 using System;
-class PaymentService
+
+namespace PaymentProcessor
 {
-    public void ProcessPayment()
+    public class PaymentService
     {
-        // ... diğer kodlar
-        if(discount != null)
+        public void ProcessPayment(Discount discount)
         {
-            // discount объекті null деуальт болмаен жүгірту
-            discount.ApplyDiscount();
+            if (discount != null)
+            {
+                discount.ApplyDiscount();
+            }
+            else
+            {
+                Console.WriteLine("Discount nesnesi boş olamaz.");
+            }
+            Console.WriteLine("Ödeme işlemleri başarılı bir şekilde gerçekleştirildi");
         }
-        Console.WriteLine("Ödeme işlemleri başarılı bir şekilde gerçekleştirildi")
+    }
+
+    public class Discount
+    {
+        public void ApplyDiscount()
+        {
+            // ... discount.apply işlemleri
+        }
+    }
+}
